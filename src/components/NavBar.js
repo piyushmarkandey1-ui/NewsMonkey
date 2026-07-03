@@ -34,25 +34,25 @@ export class NavBar extends Component {
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className={`nav-link ${this.props.category === 'business' ? 'active-link' : ''}`} style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.props.onCategoryChange('business')}}>Business</a>
+          <a href="/" className={`nav-link ${this.props.category === 'business' ? 'active-link' : ''}`} style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.props.onCategoryChange('business')}}>Business</a>
         </li>
          <li className="nav-item">
-          <a className={`nav-link ${this.props.category === 'entertainment' ? 'active-link' : ''}`} style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.props.onCategoryChange('entertainment')}}>Entertainment</a>
+          <a href="/" className={`nav-link ${this.props.category === 'entertainment' ? 'active-link' : ''}`} style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.props.onCategoryChange('entertainment')}}>Entertainment</a>
         </li>
          <li className="nav-item">
-          <a className={`nav-link ${this.props.category === 'health' ? 'active-link' : ''}`} style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.props.onCategoryChange('health')}}>Health</a>
+          <a href="/" className={`nav-link ${this.props.category === 'health' ? 'active-link' : ''}`} style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.props.onCategoryChange('health')}}>Health</a>
         </li>
          <li className="nav-item">
-          <a className={`nav-link ${this.props.category === 'general' ? 'active-link' : ''}`} style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.props.onCategoryChange('general')}}>General</a>
+          <a href="/" className={`nav-link ${this.props.category === 'general' ? 'active-link' : ''}`} style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.props.onCategoryChange('general')}}>General</a>
         </li>
          <li className="nav-item">
-          <a className={`nav-link ${this.props.category === 'science' ? 'active-link' : ''}`} style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.props.onCategoryChange('science')}}>Science</a>
+          <a href="/" className={`nav-link ${this.props.category === 'science' ? 'active-link' : ''}`} style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.props.onCategoryChange('science')}}>Science</a>
         </li>
          <li className="nav-item">
-          <a className={`nav-link ${this.props.category === 'sports' ? 'active-link' : ''}`} style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.props.onCategoryChange('sports')}}>Sports</a>
+          <a href="/" className={`nav-link ${this.props.category === 'sports' ? 'active-link' : ''}`} style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.props.onCategoryChange('sports')}}>Sports</a>
         </li>
          <li className="nav-item">
-          <a className={`nav-link ${this.props.category === 'technology' ? 'active-link' : ''}`} style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.props.onCategoryChange('technology')}}>Technology</a>
+          <a href="/" className={`nav-link ${this.props.category === 'technology' ? 'active-link' : ''}`} style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.props.onCategoryChange('technology')}}>Technology</a>
         </li>
       </ul>
       <form className="d-flex" role="search" onSubmit={this.handleSearchSubmit}>
