@@ -56,7 +56,7 @@ export default class App extends Component {
           toggleTheme={this.toggleTheme}
         />
         <News 
-          pageSize={6} 
+          pageSize={12} 
           country={this.state.country} 
           category={this.state.category} 
           searchQuery={this.state.searchQuery} 

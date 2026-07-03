@@ -59,29 +59,31 @@ export class NavBar extends Component {
           <a href="/" className={`nav-link ${this.props.category === 'technology' ? 'active-link' : ''}`} style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.props.onCategoryChange('technology')}}>Technology</a>
         </li>
       </ul>
-      <form className="d-flex me-3" role="search" onSubmit={this.handleSearchSubmit}>
-        <input className="form-control me-2 neumorphic-input" type="search" placeholder="Search news..." aria-label="Search" value={this.state.searchText} onChange={(e) => this.setState({searchText: e.target.value})} />
-        <button className="btn neumorphic-btn" type="submit">Search</button>
-      </form>
-      <div className="neumorphic-toggle-group me-3">
-        <button 
-          className={`btn neumorphic-toggle-btn ${this.props.country === 'in' ? 'active' : ''}`} 
-          onClick={this.props.country !== 'in' ? this.props.toggleCountry : undefined}
-          type="button">IND</button>
-        <button 
-          className={`btn neumorphic-toggle-btn ${this.props.country === 'us' ? 'active' : ''}`} 
-          onClick={this.props.country !== 'us' ? this.props.toggleCountry : undefined}
-          type="button">GLB</button>
-      </div>
-      <div className="neumorphic-toggle-group">
-        <button 
-          className={`btn neumorphic-toggle-btn ${this.props.theme === 'light' ? 'active' : ''}`} 
-          onClick={this.props.theme !== 'light' ? this.props.toggleTheme : undefined}
-          type="button">LGT</button>
-        <button 
-          className={`btn neumorphic-toggle-btn ${this.props.theme === 'dark' ? 'active' : ''}`} 
-          onClick={this.props.theme !== 'dark' ? this.props.toggleTheme : undefined}
-          type="button">DRK</button>
+      <div className="d-flex align-items-center flex-wrap gap-2 ms-auto mt-2 mt-lg-0 navbar-controls">
+        <form className="d-flex me-2" role="search" onSubmit={this.handleSearchSubmit}>
+          <input className="form-control me-2 neumorphic-input" type="search" placeholder="Search news..." aria-label="Search" value={this.state.searchText} onChange={(e) => this.setState({searchText: e.target.value})} />
+          <button className="btn neumorphic-btn" type="submit">Search</button>
+        </form>
+        <div className="neumorphic-toggle-group me-2">
+          <button 
+            className={`btn neumorphic-toggle-btn ${this.props.country === 'in' ? 'active' : ''}`} 
+            onClick={this.props.country !== 'in' ? this.props.toggleCountry : undefined}
+            type="button">IND</button>
+          <button 
+            className={`btn neumorphic-toggle-btn ${this.props.country === 'us' ? 'active' : ''}`} 
+            onClick={this.props.country !== 'us' ? this.props.toggleCountry : undefined}
+            type="button">GLB</button>
+        </div>
+        <div className="neumorphic-toggle-group">
+          <button 
+            className={`btn neumorphic-toggle-btn ${this.props.theme === 'light' ? 'active' : ''}`} 
+            onClick={this.props.theme !== 'light' ? this.props.toggleTheme : undefined}
+            type="button">LGT</button>
+          <button 
+            className={`btn neumorphic-toggle-btn ${this.props.theme === 'dark' ? 'active' : ''}`} 
+            onClick={this.props.theme !== 'dark' ? this.props.toggleTheme : undefined}
+            type="button">DRK</button>
+        </div>
       </div>
     </div>
   </div>
