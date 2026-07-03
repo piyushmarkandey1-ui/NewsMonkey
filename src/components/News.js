@@ -60,7 +60,11 @@ export class News extends Component {
   }
 
   async componentDidUpdate(prevProps) {
-    if (prevProps.category !== this.props.category || prevProps.searchQuery !== this.props.searchQuery) {
+    if (
+      prevProps.category !== this.props.category || 
+      prevProps.searchQuery !== this.props.searchQuery || 
+      prevProps.country !== this.props.country
+    ) {
       const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1);
       document.title = this.props.searchQuery 
         ? `Search: ${this.props.searchQuery} - NewsMonkey` 
@@ -88,6 +92,11 @@ export class News extends Component {
              : `NewsMonkey - Top ${this.props.category.charAt(0).toUpperCase() + this.props.category.slice(1)} Headlines`}
          </h2>
         <div className="row g-4">
+          {!this.state.loading && this.state.articles.length === 0 && (
+            <div className="col-12 text-center my-5">
+              <h3 style={{color: 'var(--text-secondary)'}}>No news found. Try a different search!</h3>
+            </div>
+          )}
           {!this.state.loading && (this.state.articles || []).map((article, index) => (
             <div className="col-md-6 col-lg-4 d-flex align-items-stretch" key={index}>
               <NewsItem title={article.title?article.title.slice(0, 45):""} description={article.description?article.description.slice(0, 88):""} imageUrl={article.urlToImage} newsUrl={article.url} author={article.author} date={article.publishedAt} source={article.source.name} />
