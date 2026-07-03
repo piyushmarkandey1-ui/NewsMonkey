@@ -48,11 +48,37 @@ export class News extends Component {
      try {
        let data = await fetch(url);
        let parsedData = await data.json();
-       console.log(parsedData);
+       
+       if (parsedData.status === 'error') {
+         throw new Error(parsedData.message);
+       }
+       
        this.setState({articles: parsedData.articles || [], totalResults: parsedData.totalResults || 0, loading: false})
      } catch (error) {
-       console.error('Error fetching news:', error);
-       this.setState({ loading: false });
+       console.error('Error fetching from NewsAPI, attempting fallback:', error);
+       
+       if (!this.props.searchQuery) {
+         try {
+           const fallbackUrl = `https://saurav.tech/NewsAPI/top-headlines/category/${this.props.category}/${this.props.country}.json`;
+           let fallbackData = await fetch(fallbackUrl);
+           let parsedFallback = await fallbackData.json();
+           
+           const start = (this.state.page - 1) * this.props.pageSize;
+           const end = start + this.props.pageSize;
+           const paginatedArticles = parsedFallback.articles.slice(start, end);
+           
+           this.setState({
+             articles: paginatedArticles, 
+             totalResults: parsedFallback.articles.length, 
+             loading: false
+           });
+           return;
+         } catch (fallbackError) {
+           console.error('Fallback failed:', fallbackError);
+         }
+       }
+       
+       this.setState({ loading: false, articles: [], totalResults: 0 });
      }
   }
   async componentDidMount() {
