@@ -31,9 +31,20 @@ export class News extends Component {
   }
    
   async updateNews(){
-      let url = this.props.searchQuery
-        ? `/api/news?q=${encodeURIComponent(this.props.searchQuery)}&page=${this.state.page}&pageSize=${this.props.pageSize}`
-        : `/api/news?country=${this.props.country}&category=${this.props.category}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+      const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+      const apiKey = '6ba4369e026f482f99b3653b9e9d4fe4';
+      
+      let url;
+      if (this.props.searchQuery) {
+        url = isLocal
+          ? `https://newsapi.org/v2/everything?q=${encodeURIComponent(this.props.searchQuery)}&apiKey=${apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`
+          : `/api/news?q=${encodeURIComponent(this.props.searchQuery)}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+      } else {
+        url = isLocal
+          ? `https://newsapi.org/v2/top-headlines?country=${this.props.country}&category=${this.props.category}&apiKey=${apiKey}&page=${this.state.page}&pageSize=${this.props.pageSize}`
+          : `/api/news?country=${this.props.country}&category=${this.props.category}&page=${this.state.page}&pageSize=${this.props.pageSize}`;
+      }
+
      try {
        let data = await fetch(url);
        let parsedData = await data.json();
