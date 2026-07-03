@@ -3,8 +3,7 @@ import React, { Component } from 'react'
 export class NewsItem extends Component {
   render() {
     let {title, description, imageUrl, newsUrl, author, date, source} = this.props;
-    const svg = "<svg xmlns='http://www.w3.org/2000/svg' width='286' height='180'><rect width='100%' height='100%' fill='%2316181b'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' fill='%23878e99' font-size='20'>No Image</text></svg>";
-    const fallback = `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+    const fallback = "https://images.unsplash.com/photo-1504711434969-e33886168f5c?auto=format&fit=crop&w=500&q=80";
     
     return (
       <div className="neu-card">
