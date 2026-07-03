@@ -11,17 +11,12 @@ export default class App extends Component {
     this.state = {
       category: 'general',
       searchQuery: '',
-      country: 'in', // Default to India
-      theme: 'dark' // Default to Dark Theme
+      country: 'in' // Default to India
     };
   }
 
   toggleCountry = () => {
     this.setState({ country: this.state.country === 'in' ? 'us' : 'in' });
-  }
-
-  toggleTheme = () => {
-    this.setState({ theme: this.state.theme === 'dark' ? 'light' : 'dark' });
   }
 
   handleCategoryChange = (category) => {
@@ -34,14 +29,14 @@ export default class App extends Component {
   
   render() {
     return (
-      <div className={`app-container ${this.state.theme === 'light' ? 'light-theme' : ''}`}>
+      <div className="app-container">
         <div className="magic-bg-layer">
           <MagicRings
-            color={this.state.theme === 'dark' ? '#06b6d4' : '#3182ce'}
-            colorTwo={this.state.theme === 'dark' ? '#10b981' : '#319795'}
+            color="#06b6d4"
+            colorTwo="#10b981"
             ringCount={8}
             speed={0.5}
-            opacity={this.state.theme === 'dark' ? 0.3 : 0.15}
+            opacity={0.3}
             blur={4}
             hoverScale={1.05}
           />
@@ -52,8 +47,6 @@ export default class App extends Component {
           onSearch={this.handleSearch} 
           country={this.state.country} 
           toggleCountry={this.toggleCountry} 
-          theme={this.state.theme}
-          toggleTheme={this.toggleTheme}
         />
         <News 
           pageSize={12} 
