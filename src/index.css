@@ -155,6 +155,55 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--neu-shadow-sm) !important;
 }
 
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem 1.2rem;
+  }
+  
+  .navbar-controls {
+    width: 100%;
+    margin-top: 1rem !important;
+    justify-content: space-between;
+  }
+  
+  .navbar-controls form {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+  
+  .navbar-controls form input {
+    flex-grow: 1;
+  }
+
+  .magic-bg-layer {
+    display: none; /* Hide heavy WebGL animations on mobile to save battery and maintain 60 FPS */
+  }
+  
+  .page-heading {
+    font-size: 1.8rem;
+    margin: 2rem 0;
+  }
+  
+  .neu-card {
+    padding: 1.2rem;
+    margin: 1rem 0;
+  }
+  
+  .neu-img-wrapper {
+    margin-bottom: 1rem;
+    padding: 6px;
+  }
+  
+  .neu-img-wrapper img {
+    height: 180px;
+  }
+  
+  .card-title {
+    font-size: 1.15rem;
+  }
+}
+
 /* Page Heading */
 .page-heading {
   font-size: 2.5rem;
