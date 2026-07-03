@@ -5,7 +5,9 @@ export class NavBar extends Component {
   static propTypes = {
     onCategoryChange: PropTypes.func,
     category: PropTypes.string,
-    onSearch: PropTypes.func
+    onSearch: PropTypes.func,
+    country: PropTypes.string,
+    toggleCountry: PropTypes.func
   }
 
   constructor(props) {
@@ -55,10 +57,20 @@ export class NavBar extends Component {
           <a href="/" className={`nav-link ${this.props.category === 'technology' ? 'active-link' : ''}`} style={{cursor: 'pointer'}} onClick={(e) => { e.preventDefault(); this.props.onCategoryChange('technology')}}>Technology</a>
         </li>
       </ul>
-      <form className="d-flex" role="search" onSubmit={this.handleSearchSubmit}>
-        <input className="form-control me-2" type="search" placeholder="Search news..." aria-label="Search" value={this.state.searchText} onChange={(e) => this.setState({searchText: e.target.value})} style={{background: 'rgba(255,255,255,0.1)', color: 'white', border: '1px solid rgba(255,255,255,0.2)'}} />
-        <button className="btn btn-outline-info" type="submit" style={{borderColor: 'var(--accent-color)', color: 'var(--accent-color)'}}>Search</button>
+      <form className="d-flex me-3" role="search" onSubmit={this.handleSearchSubmit}>
+        <input className="form-control me-2 neumorphic-input" type="search" placeholder="Search news..." aria-label="Search" value={this.state.searchText} onChange={(e) => this.setState({searchText: e.target.value})} />
+        <button className="btn neumorphic-btn" type="submit">Search</button>
       </form>
+      <div className="neumorphic-toggle-group">
+        <button 
+          className={`btn neumorphic-toggle-btn ${this.props.country === 'in' ? 'active' : ''}`} 
+          onClick={this.props.country !== 'in' ? this.props.toggleCountry : undefined}
+          type="button">IND</button>
+        <button 
+          className={`btn neumorphic-toggle-btn ${this.props.country === 'us' ? 'active' : ''}`} 
+          onClick={this.props.country !== 'us' ? this.props.toggleCountry : undefined}
+          type="button">GLB</button>
+      </div>
     </div>
   </div>
 </nav>
